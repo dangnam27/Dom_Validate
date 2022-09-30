@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+      
+</body>
+</html>
+<script>
+            import "./styles.css";
+
+      const action = (str) => {
+      if (Math.random() > 0.5) {
+      console.log(`Co ${str}`);
+      } else {
+      console.log(`khong ${str}`);
+      }
+      };
+
+      // C1
+
+      // const doAction = Promise.resolve();
+      // doAction
+      //   .then(() => {
+      //     action("an sang");
+      //   })
+      //   .then(() => {
+      //     action("Di hoc");
+      //   })
+      //   .then(() => {
+      //     action("kiem tra");
+      //   })
+      //   .then(() => {
+      //     action("an trua");
+      //   })
+      //   .then(() => {
+      //     action("di ve");
+      //   });
+
+      // C2
+      const breakfast = Promise.resolve(action("an sang"));
+      const goToSchool = Promise.resolve(action("di hoc"));
+      const doTest = Promise.resolve(action("kiem tra"));
+      const lunch = Promise.resolve(action("an trua"));
+      const goHome = Promise.resolve(action("di ve"));
+
+      const asynFunction = async () => {
+      await breakfast;
+      await goToSchool;
+      await doTest;
+      await lunch;
+      await goHome;
+      };
+      asynFunction();
+
+</script>
